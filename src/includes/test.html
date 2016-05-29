@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <script src="../scripts/jquery/jquery-2.2.2.min.js"></script>
+    <script>
+        var x=0;
+        var ctx;
+        var canvas;
+        $(document).ready(function () {
+            canvas = document.getElementById('canvas');
+            canvas.width = 300;
+            canvas.height = 300;
+            ctx = canvas.getContext("2d");
+
+            update();
+            function update() {
+
+                requestAnimationFrame(update);
+
+
+//                ctx.globalCompositeOperation = "source-over";
+                ctx.beginPath();
+                ctx.arc(140,x,20, 0, Math.PI * 2, false);
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.closePath();
+
+
+                //ctx.fillStyle = "rgba(255,255,255,0.5)";
+  //              ctx.globalCompositeOperation = "source-atop";
+                ctx.fillStyle = "none";
+                ctx.globalAlpha=0.2;
+
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
+
+                if(x>300)x=0;
+
+                x++;
+            }
+        });
+    </script>
+    <style>
+        canvas {
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div>I Got Text ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+<canvas id="canvas"></canvas>
+</body>
+</html>

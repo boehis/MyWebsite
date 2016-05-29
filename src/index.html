@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+
+    <script>
+        //Switch for IE
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+            document.write('<script type="text/undefined">')
+            window.location.replace("/TestWebsite/pages/ie-redirect.html");
+        }
+    </script>
+</head>
+<body>
+<div id="page">
+    <div class="header">
+        <div class="title">
+            <h1>Simon's Website</h1>
+        </div>
+        <div class="navigation-box">
+            <ul class="navigation">
+                <div class="left">
+                    <li><a href="javascript:;" id="home-link" class="navigation-item scroll-item" data-content="home">Home</a>
+                    </li>
+                    <li><a href="javascript:;" id="about-link" class="navigation-item  scroll-item"
+                           data-content="about">About </a></li>
+                    <li><a href="javascript:;" id="contact-link" class="navigation-item  scroll-item"
+                           data-content="contact">Contact</a></li>
+                </div>
+                <div class="right">
+                    <li>
+                        <a href="javascript:;" id="theme-link" class="navigation-item toggle-item" data-content="page">
+                            <i class="fa fa-moon-o"></i>
+                        </a>
+                    </li>
+                    <li class="scrollup">
+                        <a href="javascript:;" id="scrollup-link" class="navigation-item scroll-item"
+                           data-content="page">
+                            <i class="fa fa-caret-up"></i>
+                        </a>
+                    </li>
+                </div>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div id="home" class="content-item include-content" data-content="home.html">
+        </div>
+        <div id="myCanvas" class="canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="canvas-context-menu" class="context-menu">
+            <h3>Create a new ball</h3>
+            <input id="colorInput" class="inputField" type="number" placeholder="Number from 0 to 360">
+            <input id="sizeInput" class="inputField" type="number" placeholder="Size in px">
+            <input id="addBallButton" class="button" type="submit">
+        </div>
+        <div id="about" class="content-item include-content" data-content="about.html">
+        </div>
+        <div id="contact">
+            <div class="social">
+                <h1>Meet Me Elsewhere</h1>
+
+                <div class="social-links">
+                    <a target="_blank" href="//google.com" class="icon-link github">
+                        <i class="fa fa-github"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="//google.com" class="icon-link mail">
+                        <i class="fa fa-envelope"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="//google.com" class="icon-link google">
+                        <i class="fa fa-google-plus"></i>
+                        <span></span>
+                    </a>
+                </div>
+                <p>Coded with <span>&#9825;</span> by Simon</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<link href="//fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet" type="text/css">
+<link href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet"
+      type="text/css">
+<link href="style/styles.css" rel="stylesheet" type="text/css">
+<link href="style/navigation.css" rel="stylesheet" type="text/css">
+<link href="style/content.css" rel="stylesheet" type="text/css">
+<link href="style/contact.css" rel="stylesheet" type="text/css">
+
+<link href="style/dark-theme.css" rel="stylesheet" type="text/css" id="style-dark-theme" disabled="disabled">
+</html>
+
+
+<script src="scripts/jquery/jquery-2.2.2.min.js"></script>
+<script src="scripts/jquery/jquery-ui.min.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/ballGame.js"></script>

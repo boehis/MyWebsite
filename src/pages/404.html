@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Not Found</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: rgb(18, 27, 20);
+            font-family: Consolas;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14pt;
+        }
+
+        .top {
+            background-color: black;
+            height: 40px;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .holder {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        .story {
+            white-space: pre;
+        }
+        .story::after {
+            visibility: visible;
+            content: '';
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            position: relative;
+            width: 0.5em;
+            height: 1em;
+            top: 5px;
+            margin-left: 0;
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        .typed-cursor {
+            display: none;
+        }
+        .kick {
+            margin-top: 20px;
+        }
+        .kick a {
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+        .kick a:hover {
+            background: none;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="top">C:\Windows\system32\cmd.exe</div>
+    <div class="holder">
+        <span class="story"></span>
+        <div class="kick"></div>
+    </div>
+</body>
+<script src="../scripts/jquery/jquery-2.2.2.min.js"></script>
+<script src="../scripts/jquery/jquery.typed.js"></script>
+<script>
+    $(function () {
+        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var dayOfWeekIndex = (new Date()).getDay();
+        var dayOfWeek = weekdays[dayOfWeekIndex];
+        var dayOfWeekPastIndex = Math.floor(weekdays.length * Math.random());
+        var dayOfWeekPast;
+        var hourOfDay = new Date().getHours();
+        var timeOfDay;
+        // choose day of week other than current one
+        if (dayOfWeekPastIndex == dayOfWeekIndex) {
+            dayOfWeekPast = weekdays[(dayOfWeekPastIndex + 1) % weekdays.length];
+        } else {
+            dayOfWeekPast = weekdays[dayOfWeekPastIndex];
+        }
+        // assign time of day to the hour
+        if ((hourOfDay >= 4) && (hourOfDay <= 11)) {
+            timeOfDay = "morning";
+        } else if ((hourOfDay >= 12) && (hourOfDay <= 16)) {
+            timeOfDay = "afternoon";
+        } else {
+            timeOfDay = "evening";
+        }
+        // make conversation
+        $('.story').typed({
+            strings: [
+                "Well, here we are.^2000 \n" +
+                "Ain't much to look at, is it?^2000 \n" +
+                "Came here on a " + dayOfWeekPast + " night once.^1000 \n" +
+                "It was actually pretty crowded.^1000 \n" +
+                "But on a " + dayOfWeek + " " + timeOfDay + " .^300 .^300 .^1000 \n" +
+                "I guess it's just you^1000 and me.^3000 \n" +
+                "Heh.^2000 "],
+            typeSpeed: 20,
+            backDelay: 500,
+            loop: false,
+            loopCount: false,
+            callback: function () {
+                $('.kick').append('<a href="/TestWebsite">HOME</a>');
+            }
+        });
+    });
+</script>
+</html>
+

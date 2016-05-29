@@ -1,0 +1,96 @@
+#contact {
+    padding: 0;
+    height: 100vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: url("../img/background-dark.png") fixed;
+}
+
+.social {
+    text-align: center;
+    padding-top: 40vh;
+}
+
+.social h1 {
+    margin-top: 0;
+    font-weight: normal;
+    color: rgba(250, 250, 250, 0.85);
+}
+
+.social-links {
+    margin-top: 100px;
+}
+
+.icon-link {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px 0 10px;
+
+    background-color: rgba(250, 250, 250, 0.1);
+}
+
+.icon-link i {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 140px;
+    font-size: 40pt;
+    color: black;
+    transition: color .4s ease-in-out;
+}
+
+.icon-link:hover i {
+    color: white;
+}
+
+.github i {
+    color: #4078c0;
+}
+
+.mail i {
+    color: #34a753;
+}
+
+.google i {
+    color: #e94335;
+}
+
+.icon-link span {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background-color: black;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .5s ease-in-out;
+}
+
+.icon-link:hover span {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.github span {
+    background-color: #4078c0;
+}
+
+.mail span {
+    background-color: #34a753;
+}
+
+.google span {
+    background-color: #e94335;
+}
+
+.social p {
+    margin-top: 50px;
+    color: rgba(250, 250, 250, 0.6);
+}
+.social p span {
+    color: crimson;
+}
